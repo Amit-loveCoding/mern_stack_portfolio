@@ -21,11 +21,15 @@ const app = express();
 app.use(
   cors({
     origin: [
-      process.env.PORTFOLIO_URL,process.env.DASHBOARD_URL], // Allow frontend
+      "https://amit-kumar-mahto-portfolio.netlify.app",
+      "https://amit-kumar-mahto-dashboard-portfolio.netlify.app"
+    ],
     methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true, // Allow cookies
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"], // Ensure headers are allowed
   })
 );
+
 
 app.use(cookieParser());
 app.use(express.json());
